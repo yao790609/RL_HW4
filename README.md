@@ -94,62 +94,48 @@ You should now understand:
 ---
 
 
-# 4-2 強化學習模型比較：DQN / Double DQN / Dueling Double DQN
+# 4-2 Reinforcement Learning Model Comparison: DQN / Double DQN / Dueling Double DQN
 
-本專案比較三種強化學習模型在 4x4 GridWorld 任務上的表現：
 
-- **DQN**：基礎深度 Q 網路。
-- **Double DQN**：加入兩個 Q 網路防止 Q-value 過度估計。
-- **Dueling Double DQN**：進一步分離「狀態價值」與「優勢函數」以提升穩定性。
+This project compares the performance of three reinforcement learning models on a 4x4 GridWorld environment:
 
----
-
-## 🧠 模型架構比較
-
-| 模型類型        | 核心結構                                             | 優點說明                                      |
-|-----------------|------------------------------------------------------|-----------------------------------------------|
-| DQN             | 單一 Q 網路，直接輸出所有動作的 Q 值                | 架構簡單，適合新手入門                        |
-| Double DQN      | 使用 Target Q 網路來解耦選擇與評估                   | 可避免 Q-value 過估                           |
-| Dueling Double DQN | 拆分為「狀態價值」與「優勢函數」兩個分支             | 提升學習穩定性與效能                          |
-
-> 📌 範例模型架構圖建議放在 `docs/images/architecture.png`，可用 `![模型架構](docs/images/architecture.png)` 插入。
+- **DQN**: Basic Deep Q-Network.
+- **Double DQN**: Adds a separate target network to prevent Q-value overestimation.
+- **Dueling Double DQN**: Further separates state value and advantage function for better stability and performance.
 
 ---
 
-## 📊 模型訓練效能比較（總回合數：1000）
+## 🧠 Model Architecture Comparison
 
-| 模型             | 平均 Loss（最後 100 回合） | 收斂速度（約第 N 回合） | 備註                       |
-|------------------|-----------------------------|---------------------------|----------------------------|
-| **DQN**          | ~0.025                      | 約 650 回合               | 波動大，常陷入局部最優     |
-| **Double DQN**   | ~0.015                      | 約 500 回合               | 更穩定，收斂速度較快       |
-| **Dueling DQN**  | ~0.010                      | 約 400 回合               | 最穩定，且訓練曲線平滑     |
+| Model Type         | Core Structure                                         | Advantages                                    |
+|--------------------|--------------------------------------------------------|-----------------------------------------------|
+| DQN                | Single Q-network that directly outputs all Q-values    | Simple architecture, suitable for beginners   |
+| Double DQN         | Uses target Q-network to decouple action selection and evaluation | Reduces Q-value overestimation        |
+| Dueling Double DQN | Splits into two streams: state value and advantage     | Improves learning stability and convergence   |
+
+> 📌 You may include a model architecture diagram at `docs/images/architecture.png` and embed it like this: `![Model Architecture](docs/images/architecture.png)`
 
 ---
 
-## 📈 訓練損失曲線圖
+## 📊 Model Training Performance Comparison (Total Episodes: 1000)
 
-三種模型的損失函數趨勢圖如下：
+| Model              | Avg. Loss (Last 100 Episodes) | Convergence Speed (Approx.) | Notes                            |
+|--------------------|-------------------------------|------------------------------|----------------------------------|
+| **DQN**            | ~0.025                        | Around episode 650           | High variance, often suboptimal  |
+| **Double DQN**     | ~0.015                        | Around episode 500           | More stable and faster convergence |
+| **Dueling DQN**    | ~0.010                        | Around episode 400           | Most stable with smooth learning |
+
+---
+
+## 📈 Training Loss Curve
+
+Below is the loss comparison curve for all three models:
 
 ![Training Loss Comparison](docs/images/loss_comparison.png)
 
-> `loss_comparison.png` 建議放在 `/docs/images/` 路徑下。
-
 ---
 
-## 📁 專案結構說明
-├── dqn_original.py # 原始 DQN 實作
-├── double_dqn.py # Double DQN 實作
-├── dueling_dqn.py # Dueling Double DQN 實作
-├── compare_plot.py # 繪圖：三模型比較
-├── docs/
-│ └── images/
-│ ├── architecture.png
-│ └── loss_comparison.png
-└── README.md
-
----
-
-## 📌 環境需求
+## 📌  Requirements
 
 - Python 3.8+
 - PyTorch 2.0+
