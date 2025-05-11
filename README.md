@@ -131,7 +131,43 @@ Below is the comparison curve for all three models:
 
 ---
 
-## 📌  Requirements
+# 4-3 🧠 DQN with PyTorch Lightning: Enhancements & Training Techniques
+
+This project improves upon the original DQN implementation by refactoring the code using **PyTorch Lightning** and integrating several training stabilization techniques.
+
+---
+
+### ✅ Refactored to PyTorch Lightning
+
+The original DQN logic is refactored using `LightningModule` to:
+- Separate the model, training, and optimization logic
+- Improve modularity and readability
+- Enable easier experiment tracking and logging
+
+---
+
+### 🚀 Training Stabilization Techniques
+
+The following techniques are implemented to enhance and stabilize training:
+
+| Technique                  | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| **Gradient Clipping**      | Prevents exploding gradients by capping the gradient norm (`clip=1.0`)      |
+| **Learning Rate Scheduler**| Applies `StepLR` to reduce the learning rate periodically                   |
+| **Target Network**         | Uses a slowly-updated target network for more stable Q-value estimation     |
+| **Experience Replay**      | Stores transitions in a buffer to break correlation between experiences     |
+
+These enhancements help improve training stability and convergence, especially in stochastic environments like `Gridworld (mode='random')`.
+
+---
+
+### 🧪 Future Improvements
+
+- Support for Prioritized Experience Replay (PER)
+- Integrate TensorBoard for live logging
+- Extend to environments beyond Gridworld (e.g., CartPole, LunarLander)
+
+### 📌  Requirements
 
 - Python 3.8+
 - PyTorch 2.0+
