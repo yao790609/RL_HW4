@@ -129,9 +129,9 @@ This project compares the performance of three reinforcement learning models on 
 
 ## 📈 Training Loss Curve
 
-Below is the loss comparison curve for all three models:
+Below is the comparison curve for all three models:
 
-![Training Loss Comparison](docs/images/loss_comparison.png)
+![Training Comparison](https://github.com/yao790609/RL_HW4/blob/main/HW4-2.jpg)
 
 ---
 
