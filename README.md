@@ -93,9 +93,7 @@ You should now understand:
 
 ---
 
-
 # 4-2 Reinforcement Learning Model Comparison: DQN / Double DQN / Dueling Double DQN
-
 
 This project compares the performance of three reinforcement learning models on a 4x4 GridWorld environment:
 
@@ -113,8 +111,6 @@ This project compares the performance of three reinforcement learning models on 
 | Double DQN         | Uses target Q-network to decouple action selection and evaluation | Reduces Q-value overestimation        |
 | Dueling Double DQN | Splits into two streams: state value and advantage     | Improves learning stability and convergence   |
 
-> 📌 You may include a model architecture diagram at `docs/images/architecture.png` and embed it like this: `![Model Architecture](docs/images/architecture.png)`
-
 ---
 
 ## 📊 Model Training Performance Comparison (Total Episodes: 1000)
@@ -127,7 +123,7 @@ This project compares the performance of three reinforcement learning models on 
 
 ---
 
-## 📈 Training Loss Curve
+## 📈 Training comparison Curve
 
 Below is the comparison curve for all three models:
 
